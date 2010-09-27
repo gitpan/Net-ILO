@@ -9,7 +9,7 @@ use English qw(-no_match_vars);
 use IO::Socket::SSL;
 use XML::Simple;
 
-our $VERSION = '0.51';
+our $VERSION = '0.52';
 
 
 my $METHOD_UNSUPPORTED = 'Method not supported by this iLO version';
@@ -1509,7 +1509,7 @@ sub _send {
             print "'$line'\n";
         }
         
-        my $ok = print {$client} $line, "\r\n";
+        my $ok = print {$client} $line . "\r\n";
 
         if (!$ok) {
             $self->error("Error transmitting command to server");
